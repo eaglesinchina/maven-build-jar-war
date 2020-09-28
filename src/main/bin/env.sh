@@ -2,7 +2,7 @@ MAIN_CLASS=testweb.demo.DemoApplication
 SERVER_PORT=8000
 JAVA_OPTS=" -Xms1g -Xmx1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
 
-BIN=`echo "$( cd -P "$( dirname "${SOURCE}" )" && pwd )" `
+BIN=`echo "$( cd -P "$( dirname "${0}" )" && pwd )" `
 SHELL_LOG="${BIN}/console.out"
 SERVICE_LOG_PATH=${BIN}/../logs
 SERVICE_CONF_PATH=${BIN}/../conf

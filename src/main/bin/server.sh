@@ -1,4 +1,4 @@
-BIN=`echo "$( cd -P "$( dirname "${SOURCE}" )" && pwd )" `
+BIN=`echo "$( cd -P "$( dirname "${0}" )" && pwd )" `
 source  ${BIN}/env.sh
 
 

@@ -1,1 +1,1 @@
-测试maven自动构建jar,war包
+测试maven使用pom.xml自动构建jar,war包

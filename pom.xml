@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <!--<scope>provided</scope>--> <!--打war包时需要启用，在idea中运行时需要注释 -->
+            <scope>provided</scope> <!--打war包时需要启用，在idea中运行时需要注释-->
         </dependency>
 
         <dependency>

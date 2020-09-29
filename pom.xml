@@ -55,41 +55,28 @@
         </dependency>
     </dependencies>
 
+
+    <packaging>war</packaging>
     <build>
+        <finalName>demo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*.yml</exclude>
-                        <exclude>**/*.properties</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2.1</version>
                 <executions>
                     <execution>
-                        <id>assemble</id>
+                        <id>copy-dependencies</id>
+                        <phase>compile</phase>
                         <goals>
-                            <goal>single</goal>
+                            <goal>copy-dependencies</goal>
                         </goals>
-                        <phase>install</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/lib</outputDirectory>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <appendAssemblyId>false</appendAssemblyId>
-                    <attach>false</attach>
-                    <descriptors>
-                        <descriptor>${basedir}/src/main/assembly/package.xml</descriptor>
-                    </descriptors>
-                    <finalName>${project.artifactId}_${project.version}</finalName>
-                    <outputDirectory>packages</outputDirectory>
-                </configuration>
             </plugin>
         </plugins>
     </build>

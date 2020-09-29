@@ -6,13 +6,13 @@ BIN=`echo "$( cd -P "$( dirname "${0}" )" && pwd )" `
 SHELL_LOG="${BIN}/console.out"
 SERVICE_LOG_PATH=${BIN}/../logs
 SERVICE_CONF_PATH=${BIN}/../conf
-PID_FILE_PATH=${BIN}/../pid
+#PID_FILE_PATH=${BIN}/../pid
 LIB_PATH=${BIN}/../lib
 
 CLASSPATH=${LIB_PATH}"/*:"${SERVICE_CONF_PATH}":."
 JAVA_OPTS=${JAVA_OPTS}" -XX:HeapDumpPath="${SERVICE_LOG_PATH}" -Dlog.path="${SERVICE_LOG_PATH}
 JAVA_OPTS=${JAVA_OPTS}" -Dserver.port="${SERVER_PORT}" "
-JAVA_OPTS=${JAVA_OPTS}" -Dpid.file="${PID_FILE_PATH}
+#JAVA_OPTS=${JAVA_OPTS}" -Dpid.file="${PID_FILE_PATH}
 #JAVA_OPTS=${JAVA_OPTS}" -Dlogging.config="${SERVICE_CONF_PATH}"/logback.xml"
 JAVA_OPTS=${JAVA_OPTS}" -classpath "${CLASSPATH}
 

@@ -50,6 +50,7 @@ function wait_for_startstop(){
 
     local now_s=`date '+%s'`
     local stop_s=$((${now_s} + ${sleep_time}))
+    echo $stop_s
     while [ ${now_s} -le ${stop_s} ];do
         check_status ${MAIN_CLASS}
         service_status=$?
@@ -58,17 +59,11 @@ function wait_for_startstop(){
             if [ ${service_status} -eq 0 ]; then
                 # echo "$1  is still running with pid $p"
                 return 0
-            else
-                # echo "$1  does not appear in the java process table"
-                return 1
             fi
         else
             if [ ${service_status} -eq 1 ]; then
-                # echo "$1  is still running with pid $p"
+                # echo "$1  stopped success "
                 return 0
-            else
-                # echo "$1  does not appear in the java process table"
-                return 1
             fi
         fi
 
@@ -77,6 +72,7 @@ function wait_for_startstop(){
     done
     exit 1
 }
+
 
 function usage(){
     echo " usage is [start|stop|status]"
